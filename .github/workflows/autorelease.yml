@@ -20,7 +20,7 @@ jobs:
 
     - name: Build
       run: |
-        dir "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise"
+        dir "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\"
         $env:path += "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.13.26128\bin\Hostx86\x86\"
         nmake -f Makefile.msvc
 
