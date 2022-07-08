@@ -20,8 +20,9 @@ jobs:
 
     - name: Build
       run: |
-        dir "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\bin\Hostx86\x86\"
-        "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\bin\Hostx86\x86\nmake.exe" -f Makefile.msvc
+        ls "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\bin\Hostx64\x64\"
+        $env:path += "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\bin\Hostx64\x64\"
+        nmake.exe -f Makefile.msvc
 
     - name: Zip
       run: zip -r donut.zip .
