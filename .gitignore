@@ -6,6 +6,10 @@
 *.user
 *.sln.docstates
 
+
+.vscode/
+/donut.zip
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

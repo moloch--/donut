@@ -1,0 +1,30 @@
+name: Donut
+
+on:
+  push:
+    branches: ["master"]
+
+jobs:
+
+  donut:
+    name: Donut
+    runs-on: windows-2019
+    timeout-minutes: 45
+    steps:
+
+    - name: Check out code into the Go module directory
+      uses: actions/checkout@v2
+
+    - name: Build
+      run: make -f Makefile.mingw
+
+    - name: Zip
+      run: zip -r donut.zip .
+
+    - name: GitHub Release
+      uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        prerelease: false
+        files: |
+          ./donut.zip
